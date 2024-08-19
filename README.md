@@ -38,7 +38,7 @@ From the repository root directory, run the Chef`s Hat Run server using:
 
 ```
 
-![Chef's Hat Run ](gitImages/main_page.png)
+![Chef's Hat Run ](git_imgs/main_page.png)
 
 
 ### Chef`s Hat Run Tools
@@ -47,7 +47,7 @@ Currently, there are three tools available with Chef`s Hat Run:
 
 ## Create New Room
 
-![Chef's Hat Run - Create New Room](gitImages/CreateNewRoom.gif)
+![Chef's Hat Run - Create New Room](git_imgs/CreateNewRoom.gif)
 
 This tool allows you to create new Chef`s Hat rooms, populate it with Players and Spectators and start a room server.
 It is ideal to quickly run experiments without touching any code, or to setup server rooms that will be accessed by other computers.
@@ -59,7 +59,7 @@ All the Players available at the [Chef`s Hat Players Club](https://github.com/pa
 Once your room is up and running, it will be acessible by the See Rooms tool.
 
 ## See Rooms
-![Chef's Hat Run - See Rooms](gitImages/see_room.png)
+![Chef's Hat Run - See Rooms](git_imgs/see_room.png)
 
 The Seee Room tool allows to follow runing and finished games, checking their current status in relation to the stop criteria, and showing a small summary of the room performance.
 
@@ -68,7 +68,7 @@ Once the room is finished, you can download all the logs (Game and room, all pla
 
 ## Explore Games
 
-![Chef's Hat Run - Explore Games](gitImages/exploregame.png)
+![Chef's Hat Run - Explore Games](git_imgs/exploregame.png)
 
 The Explore Games tool uses a generated game datasets to create explorative plots that describe the behavior of the agents.
 Currently, it is possible to visualize the evolution, and distribution, of the scores, number of played rounds and number of declared pizzas for each player that played a game.
