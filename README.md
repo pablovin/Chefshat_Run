@@ -1,8 +1,8 @@
-![Chef's Hat Run](gitImages/chefsHatLogo.png)
+![Chef's Hat Run](git_imgs/ChefsHatRun.png)
 
 ## Chef`s Hat Run
 
-This repository holds the Chef`s Hat Run, an environment to simplify the runing, managing and exploration of simulations using the [ChefsHatGym]( https://github.com/pablovin/ChefsHatGYM) simulation environment.
+This repository holds the Chef`s Hat Run, an environment to simplify the runing, managing and exploration of server-based rooms using the [ChefsHatGym]( https://github.com/pablovin/ChefsHatGYM) simulation environment.
 
 The current version of the Chef`s Hat Run allows you too:
 
