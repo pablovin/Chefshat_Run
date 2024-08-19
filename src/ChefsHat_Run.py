@@ -31,7 +31,7 @@ def main():
         
         ### Need more information about Chef`s Hat Environment?
         - Check all all about the Chef`s Hat Run: https://github.com/pablovin/Chefshat_Run        
-        - Also the Chef`s Hat Gym page for an overview of the Chef`s Hat Simulator: https://github.com/pablovin/ChefsHatGYM 
+        - Also the Chef`s Hat Gym page for an overview of the simulator: https://github.com/pablovin/ChefsHatGYM 
         - And of course, the Chef`s Hat Players Club has all the information about the artificial Players: https://github.com/pablovin/ChefsHatPlayersClub             
     """
     )
