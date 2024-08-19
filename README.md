@@ -49,11 +49,11 @@ Currently, there are three tools available with Chef`s Hat Run:
 
 ![Chef's Hat Run - Create New Room](git_imgs/CreateNewRoom.gif)
 
-This tool allows you to create new Chef`s Hat rooms, populate it with Players and Spectators and start a room server.
+This tool allows you to create new Chef\`s Hat rooms, populate it with Players and Spectators and start a room server.
 It is ideal to quickly run experiments without touching any code, or to setup server rooms that will be accessed by other computers.
-For an in-depth understanding of our parameters when creating a room, please check the [Chef`s Hat Rooms page](https://chefshatgym.readthedocs.io/en/latest/04_rooms.html).
+For an in-depth understanding of our parameters when creating a room, please check the [Chef\`s Hat Rooms page](https://chefshatgym.readthedocs.io/en/latest/04_rooms.html).
 
-All the Players available at the [Chef`s Hat Players Club](https://github.com/pablovin/ChefsHatPlayersClub) are directly available to be added to your server room. Check the Player section on the Chef`s Hat Players Club website for mor information about parameters and general agent behavior.
+All the Players available at the [Chef\`s Hat Players Club](https://github.com/pablovin/ChefsHatPlayersClub) are directly available to be added to your server room. Check the Player section on the Chef`s Hat Players Club website for mor information about parameters and general agent behavior.
 
 
 Once your room is up and running, it will be acessible by the See Rooms tool.
