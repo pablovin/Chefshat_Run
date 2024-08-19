@@ -168,7 +168,7 @@ for i in range(4):
 
         
 st.markdown("---")
-st.subheader("Finnaly, Add some Spectators if you need them:")
+st.subheader("Finaly, Add some Spectators if you need them:")
 st.write("Spectators are optional, and you can run a game without any of them. You can always connect Spectators remotely at any time.")
 columns = st.columns(4)
 
