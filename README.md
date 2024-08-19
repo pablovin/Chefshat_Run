@@ -13,7 +13,7 @@ The current version of the Chef`s Hat Run allows you too:
 * Download all logs and datasets of running experiments.
 * Explore finished experiments by generating game-related statistics.
 
-Chef\\`s Hat Run creates a webserver that can host all the experiments, allowing it to be deployed in a remote server. All experiment results are saved in a local folder and can be easily accessible via the Chef\\`s Hat Run tools.
+Chef\`s Hat Run creates a webserver that can host all the experiments, allowing it to be deployed in a remote server. All experiment results are saved in a local folder and can be easily accessible via the Chef\`s Hat Run tools.
 
 ### Instalation
 
