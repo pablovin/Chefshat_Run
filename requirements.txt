@@ -1,0 +1,6 @@
+altair
+chefshatgym
+ChefsHatPlayersClub
+matplotlib
+pandas
+streamlit

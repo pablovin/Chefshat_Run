@@ -11,8 +11,10 @@ from ChefsHatPlayersClub.agents.chefs_cup_v2.bloom.Bloom import Bloom
 from ChefsHatPlayersClub.agents.chefs_cup_v2.larger_value.larger_value import AgentLargerValue
 from ChefsHatPlayersClub.agents.chefs_cup_v2.ppo_v2.ppo_v2 import AgentPPOV2
 
+from ChefsHatGym.agents.spectator_logger import SpectatorLogger
 
-not_show_parameters = ["name", "saveModelIn", "saveFolder", "verbose", "logDirectory", "loadNetwork", "demonstrations"]
+
+not_show_parameters = ["name", "saveFolder", "this_agent_folder", "verbose_console","verbose_log", "logDirectory", "log_directory", "loadNetwork", "demonstrations"]
 
 
 agents_list = {
@@ -53,14 +55,9 @@ agents_list = {
     
     
 }
-    # AgentPPO:{"name":str, "continueTraining":True, "agentType":["vsEveryone"], "initialEpsilon":float, "loadNetwork":str},
-    # AgentAIRL:{"name":str, "continueTraining":True, "agentType":["lilAle"], "initialEpsilon":float, "loadNetwork":str},
-    # AIACIMP:{"name":str, "continueTraining":True,  "initialEpsilon":float, "loadNetwork":str},
-    # AINSA:{"name":str, "continueTraining":True,  "initialEpsilon":float, "loadNetwork":str},
-    # ALLIN:{"name":str, "continueTraining":True,  "initialEpsilon":float, "loadNetwork":str},
-    # AMYG4:{"name":str, "continueTraining":True,  "initialEpsilon":float, "loadNetwork":str},
-    # Bloom: {"name":str},
-    # AgentLargerValue: {"name":str},
-    # AgentPPOV2:{"name":str, "continueTraining":True, "initialEpsilon":float, "loadNetwork":str},
-
-# }
+spectators_list = {
+    'Logger': {      
+        'class': SpectatorLogger  
+    }
+    
+}
