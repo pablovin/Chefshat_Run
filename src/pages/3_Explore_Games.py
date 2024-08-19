@@ -24,32 +24,31 @@ if uploaded_file is not None:
     else:
         st.write("Data Loaded Successfully!")
 
-        nan_value = float("NaN") 
-        data.replace("", nan_value, inplace=True)
-
-        agent_names = data["Agent Names"].values[1].replace("[","").replace("]","").replace("'","").split(",")
+        agent_names = data["Agent_Names"].values[0]
 
 
-        games = data['Game Number'].unique()
+        matches = data['Match'].unique()[1:]
 
         #[game, player, score, maxrounds, passes, pizza]
         dataFrame = []
         index = 0
-        for game in games:
-            game_scores = data[(data['Game Number'] == game)]["Scores"].values[-1]  
+        for match in matches:
+            game_scores = data[(data['Match'] == match) & (data['Action_Type'] == "END_MATCH")]["Game_Score"].values[-1]
             
-            max_rounds = data[(data['Game Number'] == game)].dropna(subset="Round Number")
-            max_rounds = max_rounds.groupby("Player")["Round Number"].max()
+            max_rounds = data[(data['Match'] == match) & (data['Action_Type'] == "DISCARD")].groupby("Source")["Round"].max()        
 
-            total_pass = data[(data['Action Type'] == 'PASS') & (data['Game Number'] == game) ].groupby('Player').size()            
+            total_pass = data[(data['Match'] == match) & (data['Action_Description'] == 'pass')].groupby('Source').size()
+
+            total_pizzas = data[(data['Match'] == match) & (data['Action_Type'] == 'DECLARE_PIZZA')].groupby('Source').size()          
 
             for player_index in range(len(agent_names)):                 
                 this_game_frame = {}
-                this_game_frame["Game"] = game
+                this_game_frame["Game"] = match
                 this_game_frame["Player"] = agent_names[player_index]
                 this_game_frame["Score"] = game_scores[player_index]
                 this_game_frame["Rounds"] = max_rounds[player_index]
                 this_game_frame["Passes"] = total_pass[player_index]
+                this_game_frame["Pizzas"] = total_pizzas[player_index]
                 dataFrame.append(pd.DataFrame(this_game_frame, index=[index]))
                 index+=1
         dataFrame = pd.concat(dataFrame)
@@ -97,6 +96,21 @@ if uploaded_file is not None:
         chart = alt.Chart(dataFrame).mark_boxplot(extent='min-max').encode(
             x='Player',
             y='Passes'
+        )
+        st.altair_chart(chart, theme="streamlit", use_container_width=True)
+        st.markdown("---")
+
+
+        st.write("### Number of Pizzas")
+        st.write("The number of Times a player declared pizza during each match.") 
+
+        st.subheader("Declared Pizzas Evolution")
+        st.line_chart(data=dataFrame, x="Game", y="Pizzas", x_label="Games", y_label="Number of Pizzas", color="Player")
+        
+        st.subheader("Pizzas Distribution")
+        chart = alt.Chart(dataFrame).mark_boxplot(extent='min-max').encode(
+            x='Player',
+            y='Pizzas'
         )
         st.altair_chart(chart, theme="streamlit", use_container_width=True)
         st.markdown("---")
