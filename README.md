@@ -6,14 +6,14 @@ This repository holds the Chef`s Hat Run, an environment to simplify the runing,
 
 The current version of the Chef`s Hat Run allows you too:
 
-* Setup a server room that can be accessed remotely by any type of player.
+
+* Setup a server room that can be accessed remotely by any player.
 * Run local experiments with any number of artificial Players and Spectators in a server room.
-* Follow up experiments, with a live summary of the room while it is running.
+* Follow-up experiments, with a live summary of the room while it is running.
 * Download all logs and datasets of running experiments.
 * Explore finished experiments by generating game-related statistics.
 
-Chef`s Hat Run creates a webserver that is able to host all the experiments, allowing it to be deployed in a remote server.
-All experiments results are saved in a local folder, and can be easily acessible via the Chef`s Hat Run tools.
+Chef\\`s Hat Run creates a webserver that can host all the experiments, allowing it to be deployed in a remote server. All experiment results are saved in a local folder and can be easily accessible via the Chef\\`s Hat Run tools.
 
 ### Instalation
 
