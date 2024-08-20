@@ -41,7 +41,7 @@ if uploaded_file is not None:
         third_person_df = []
 
         for count, match in enumerate(matches):
-            match_df = data[data["Match"] == match]
+            match_df = data[(data["Match"] == match) & (data["Source"] != "SYSTEM")]
             third_person_df.append(calculate_scores(match_df, match))
             my_bar.progress(int((count / len(matches)) * 100), text="Loading data...")
 
