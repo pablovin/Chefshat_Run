@@ -76,6 +76,13 @@ Currently, it is possible to visualize the evolution, and distribution, of the s
 All plots are interactive and can be zoomed and visualized in different angles, and can be easily downloaded as PNG or SVG files.
 
  
+![Chef's Hat Run - Competitive Metrics](git_imgs/CompetitiveMetrics.png)
+
+The Competitive Metrics tool calculates the first person and third person metrics proposed by Laura Triglia (more information: https://github.com/lauratriglia/MetricsChefsHat).
+These metrics provide an overview of the behavior of the agents in a played match. This tool generates a .csv file containing the metrics for all played games, and produces general visualization plots for each of these metrics.
+
+All plots can be easily downloaded as PNG or SVG files.
+
 
  ## Use and distribution policy
 
