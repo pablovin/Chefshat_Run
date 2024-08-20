@@ -11,11 +11,12 @@ def main():
 
     st.sidebar.success("Select one of the tools from the menu on the left.")
 
-    st.image(f"{os.path.join(script_directory,'ChefsHatRun.png')}", caption="Serving Chef`s Hat Games to Everyone!")
+    st.image(
+        f"{os.path.join(script_directory,'ChefsHatRun.png')}",
+        caption="Serving Chef`s Hat Games to Everyone!",
+    )
 
     st.write("# Welcome to Chef`s Hat Run! 👋")
-
-    
 
     st.markdown(
         """
@@ -28,6 +29,7 @@ def main():
         - **Create New Room**: Use this tool to create your very own Chef\\`s Hat Room! Add Players and Spectators to run locally, and start your experiments!
         - **Online Rooms**: Use this tool to follow up the rooms that you created with the Create New Room tool. See a live representation of the game`s status and a summary of the game log.
         - **Explore Games**: Use this tool to read and explore existing games from a .pkl Dataset. It can create explorative plots, and give you some insights about the experiment.
+        - **Competitive Metrics**: Use this tool to generate a set of the competitive metrics defined by Laura Triglia here: https://github.com/lauratriglia/MetricsChefsHat .
         
         ### Need more information about Chef`s Hat Environment?
         - Check all all about the Chef`s Hat Run: https://github.com/pablovin/Chefshat_Run        
@@ -38,5 +40,5 @@ def main():
 
 
 if __name__ == "__main__":
-    # wide_space_default()    
+    # wide_space_default()
     main()
