@@ -39,7 +39,12 @@ if uploaded_file is not None:
                 (data["Match"] == match) & (data["Action_Type"] == "END_MATCH")
             ]["Game_Score"].values[-1]
 
-            max_rounds = (
+            match_scores = data[
+                (data["Match"] == match) & (data["Action_Type"] == "END_MATCH")
+            ]["Match_Score"].values[-1]
+
+            print (f"Match Scores: {match_scores}")
+            max_rounds = (  
                 data[(data["Match"] == match) & (data["Action_Type"] == "DISCARD")]
                 .groupby("Source")["Round"]
                 .max()
@@ -68,13 +73,14 @@ if uploaded_file is not None:
                 if player_name not in total_pass.index:
                     total_pass[player_name] = 0
                 if player_name not in total_pizzas.index:
-                    total_pizzas[player_name] = 0
+                    total_pizzas[player_name] = 0                
 
             for player_index in range(len(agent_names)):
                 this_game_frame = {}
                 this_game_frame["Game"] = match
                 this_game_frame["Player"] = agent_names[player_index]
-                this_game_frame["Score"] = game_scores[player_index]
+                this_game_frame["Game_Score"] = game_scores[player_index]
+                this_game_frame["Match_Score"] = match_scores[player_index]
                 this_game_frame["Rounds"] = max_rounds[player_index]
                 this_game_frame["Passes"] = total_pass[player_index]
                 this_game_frame["Pizzas"] = total_pizzas[player_index]
@@ -92,16 +98,16 @@ if uploaded_file is not None:
         st.line_chart(
             data=dataFrame,
             x="Game",
-            y="Score",
+            y="Game_Score",
             x_label="Games",
-            y_label="Scores",
+            y_label="Game Scores",
             color="Player",
         )
-        st.subheader("Score Distribution")
+        st.subheader("Score Distribution Per Match")
         chart = (
             alt.Chart(dataFrame)
             .mark_boxplot(extent="min-max")
-            .encode(x="Player", y="Score")
+            .encode(x="Player", y="Match_Score")
         )
         st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
