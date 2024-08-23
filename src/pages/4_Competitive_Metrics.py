@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import altair as alt
-from MetricsChefsHat.CalculateMetrics import calculate_scores
+from MetricsChefsHat.CalculateMetrics import calculate_scores, eccentricity_df
 from MetricsChefsHat.PlotManager import PlayerAnalysis
 
 
@@ -48,6 +48,7 @@ if uploaded_file is not None:
             finish_index = match_df[match_df["Player_Finished"] == True].index.min()
             match_df = match_df.loc[:finish_index]
             third_person_df.append(calculate_scores(match_df, match))
+            first_person_df.append(eccentricity_df(match_df, match)[0])
             my_bar.progress(int((count / len(matches)) * 100), text="Loading data...")
 
         my_bar.empty()
@@ -55,16 +56,27 @@ if uploaded_file is not None:
         third_person_df = pd.concat(third_person_df)
         third_person_csv = convert_df(third_person_df)
 
+        first_person_df = pd.concat(first_person_df)
+        first_person_csv = convert_df(first_person_df)
+
         st.write("Data loaded!")
         st.markdown("---")
 
         st.subheader("Available Metrics")
         st.download_button(
+            "Download First Person Metrics",
+            first_person_csv,
+            "file.csv",
+            "text/csv",
+            key="download-csv-first",
+        )
+
+        st.download_button(
             "Download Third Person Metrics",
             third_person_csv,
             "file.csv",
             "text/csv",
-            key="download-csv",
+            key="download-csv-third",
         )
 
         st.markdown("---")
