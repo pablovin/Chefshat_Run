@@ -9,7 +9,10 @@ from MetricsChefsHat.PlotManager import PlayerAnalysis
 # Function to load data from a .pkl file
 # @st.cache
 def load_data(filepath):
-    return pd.read_pickle(filepath)
+    df = pd.read_pickle(filepath)
+    df = df.reset_index(drop=True)
+
+    return df
 
 
 # @st.cache_data
@@ -42,6 +45,8 @@ if uploaded_file is not None:
 
         for count, match in enumerate(matches):
             match_df = data[(data["Match"] == match) & (data["Source"] != "SYSTEM")]
+            finish_index = match_df[match_df["Player_Finished"] == True].index.min()
+            match_df = match_df.loc[:finish_index]
             third_person_df.append(calculate_scores(match_df, match))
             my_bar.progress(int((count / len(matches)) * 100), text="Loading data...")
 
