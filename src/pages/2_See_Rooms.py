@@ -125,7 +125,7 @@ if selected_room_name:
         max_rounds_placeholder = st.empty()    
 
     room_status = st.empty()
-    download_button = st.empty()
+    download_button_st = st.empty()
 
 
     # Header information
@@ -155,7 +155,7 @@ if selected_room_name:
                     room_status.success("Room Status: Finished")
                     zip_file_buffer = zip_directory(log_directory)
                     basename = os.path.basename(log_directory)
-                    download_button.download_button(label="Download Room Logs",
+                    download_button_st.download_button(label="Download Room Logs",
                                                     data=zip_file_buffer,
                                                     file_name=f"{basename}.zip",
                                                     mime="application/zip")

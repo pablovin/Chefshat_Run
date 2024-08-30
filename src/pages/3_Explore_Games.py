@@ -34,7 +34,13 @@ if uploaded_file is not None:
         # [game, player, score, maxrounds, passes, pizza]
         dataFrame = []
         index = 0
+        # print(data)
         for match in matches:
+            game_data = data[
+                (data["Match"] == match) & (data["Action_Type"] == "END_MATCH")
+            ]["Game_Score"]
+
+            # print (game_data)
             game_scores = data[
                 (data["Match"] == match) & (data["Action_Type"] == "END_MATCH")
             ]["Game_Score"].values[-1]
@@ -43,7 +49,7 @@ if uploaded_file is not None:
                 (data["Match"] == match) & (data["Action_Type"] == "END_MATCH")
             ]["Match_Score"].values[-1]
 
-            print (f"Match Scores: {match_scores}")
+            
             max_rounds = (  
                 data[(data["Match"] == match) & (data["Action_Type"] == "DISCARD")]
                 .groupby("Source")["Round"]
@@ -63,9 +69,12 @@ if uploaded_file is not None:
                 .groupby("Source")
                 .size()
             )
-            # print(
-            #     f"Game Score: {game_scores} - Rounds: {max_rounds} - Pass:{total_pass} - Pizza: {total_pizzas}"
-            # )
+            print(
+                f"Game Score: {game_scores}"
+            )
+            print(
+                f"Match Score: {match_scores}"
+            )
 
             for player_name in agent_names:
                 if player_name not in max_rounds.index:
@@ -79,8 +88,8 @@ if uploaded_file is not None:
                 this_game_frame = {}
                 this_game_frame["Game"] = match
                 this_game_frame["Player"] = agent_names[player_index]
-                this_game_frame["Game_Score"] = game_scores[player_index]
-                this_game_frame["Match_Score"] = match_scores[player_index]
+                this_game_frame["Game_Score"] = game_scores[agent_names[player_index]]
+                this_game_frame["Match_Score"] = match_scores[agent_names[player_index]]
                 this_game_frame["Rounds"] = max_rounds[player_index]
                 this_game_frame["Passes"] = total_pass[player_index]
                 this_game_frame["Pizzas"] = total_pizzas[player_index]
