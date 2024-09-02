@@ -83,6 +83,7 @@ def join_players(opponents, log_directory, room_url, room_port):
             opponent_params["log_directory"] = log_directory
             opponent_params["verbose_log"] = True                    
             opponent_params["verbose_console"] = False      
+            opponent_params["use_sufix"] = False     
 
             # Create an instance of the class with the given parameters
 
