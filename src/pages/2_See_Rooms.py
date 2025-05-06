@@ -158,7 +158,7 @@ if selected_room_name:
                     download_button_st.download_button(label="Download Room Logs",
                                                     data=zip_file_buffer,
                                                     file_name=f"{basename}.zip",
-                                                    mime="application/zip")
+                                                    mime="application/zip")                    
                 else:
                     room_status.error("Room Status: Ongoing")
 
